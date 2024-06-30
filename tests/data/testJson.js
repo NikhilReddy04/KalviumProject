@@ -298,6 +298,253 @@ const testCases = [
             error: 0,
         },
     },
+    //new test cases (10 new added)
+    {
+        name: 'c : sum of two numbers',
+        reqObject: {
+            language: 'c',
+            script:
+                '#include<stdio.h>\n\n' +
+                'int main(){\n\n' +
+                '    int a, b;\n' +
+                '    scanf("%d %d", &a, &b);\n' +
+                '    printf("%d\\n", a + b);\n' +
+                '    return 0;\n' +
+                '}\n',
+            stdin: '5 10',
+        },
+        expectedResponse: {
+            val: '15\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'cpp : calculate factorial',
+        reqObject: {
+            language: 'cpp',
+            script:
+                '#include<bits/stdc++.h>\n\n' +
+                'using namespace std;\n\n' +
+                'int factorial(int n) {\n' +
+                '    if (n == 0)\n' +
+                '        return 1;\n' +
+                '    else\n' +
+                '        return n * factorial(n - 1);\n' +
+                '}\n\n' +
+                'int main() {\n' +
+                '    int n;\n' +
+                '    cin >> n;\n' +
+                '    cout << factorial(n);\n' +
+                '    return 0;\n' +
+                '}\n',
+            stdin: '5',
+        },
+        expectedResponse: {
+            val: '120',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'java : reverse a string',
+        reqObject: {
+            language: 'java',
+            script:
+                'import java.util.Scanner;\n\n' +
+                'public class Solution {\n\n' +
+                '    public static void main(String[] args) {\n\n' +
+                '        Scanner scanner = new Scanner(System.in);\n' +
+                '        String input = scanner.nextLine();\n' +
+                '        String reversed = new StringBuilder(input).reverse().toString();\n' +
+                '        System.out.println(reversed);\n\n' +
+                '        scanner.close();\n' +
+                '    }\n' +
+                '}\n',
+            stdin: 'hello world',
+        },
+        expectedResponse: {
+            val: 'dlrow olleh\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'nodejs : find maximum in array',
+        reqObject: {
+            language: 'nodejs',
+            script:
+                'function findMax(arr) {\n' +
+                '    return Math.max(...arr);\n' +
+                '}\n' +
+                'const array = [1, 5, 3, 8, 2];\n' +
+                'console.log(findMax(array));\n',
+        },
+        expectedResponse: {
+            val: '8\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'python : count words in string',
+        reqObject: {
+            language: 'python',
+            script:
+                'sentence = "Hello world, this is a sentence."\n' +
+                'words = len(sentence.split())\n' +
+                'print(words)\n',
+        },
+        expectedResponse: {
+            val: '6\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'sqlite3 : select data from table',
+        reqObject: {
+            language: 'sqlite3',
+            script: 'CREATE TABLE employees (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER);\n' +
+                    'INSERT INTO employees (name, age) VALUES ("Alice", 30);\n' +
+                    'INSERT INTO employees (name, age) VALUES ("Bob", 25);\n' +
+                    'SELECT * FROM employees;',
+        },
+        expectedResponse: {
+            val: '1|Alice|30\n2|Bob|25\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'c : check prime number',
+        reqObject: {
+            language: 'c',
+            script:
+                '#include<stdio.h>\n\n' +
+                'int isPrime(int n) {\n' +
+                '    if (n <= 1) return 0;\n' +
+                '    for (int i = 2; i * i <= n; i++) {\n' +
+                '        if (n % i == 0) return 0;\n' +
+                '    }\n' +
+                '    return 1;\n' +
+                '}\n\n' +
+                'int main() {\n' +
+                '    int number;\n' +
+                '    scanf("%d", &number);\n' +
+                '    if (isPrime(number)) {\n' +
+                '        printf("%d is prime\\n", number);\n' +
+                '    } else {\n' +
+                '        printf("%d is not prime\\n", number);\n' +
+                '    }\n' +
+                '    return 0;\n' +
+                '}\n',
+            stdin: '7',
+        },
+        expectedResponse: {
+            val: '7 is prime\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'cpp : sum of array elements',
+        reqObject: {
+            language: 'cpp',
+            script:
+                '#include<bits/stdc++.h>\n\n' +
+                'using namespace std;\n\n' +
+                'int main() {\n' +
+                '    int n, sum = 0;\n' +
+                '    cin >> n;\n' +
+                '    vector<int> arr(n);\n' +
+                '    for (int i = 0; i < n; ++i) {\n' +
+                '        cin >> arr[i];\n' +
+                '        sum += arr[i];\n' +
+                '    }\n' +
+                '    cout << sum;\n' +
+                '    return 0;\n' +
+                '}\n',
+            stdin: '5\n1 2 3 4 5',
+        },
+        expectedResponse: {
+            val: '15',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'java : calculate area of circle',
+        reqObject: {
+            language: 'java',
+            script:
+                'import java.util.Scanner;\n\n' +
+                'public class Solution {\n\n' +
+                '    public static void main(String[] args) {\n\n' +
+                '        Scanner scanner = new Scanner(System.in);\n' +
+                '        double radius = scanner.nextDouble();\n' +
+                '        double area = Math.PI * radius * radius;\n' +
+                '        System.out.println(area);\n\n' +
+                '        scanner.close();\n' +
+                '    }\n' +
+                '}\n',
+            stdin: '5.0',
+        },
+        expectedResponse: {
+            val: '78.53981633974483\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'nodejs : factorial using recursion',
+        reqObject: {
+            language: 'nodejs',
+            script:
+                'function factorial(n) {\n' +
+                '    if (n === 0) {\n' +
+                '        return 1;\n' +
+                '    }\n' +
+                '    return n * factorial(n - 1);\n' +
+                '}\n' +
+                'console.log(factorial(5));\n',
+        },
+        expectedResponse: {
+            val: '120\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'python : find sum of array elements',
+        reqObject: {
+            language: 'python',
+            script:
+                'array = [1, 2, 3, 4, 5]\n' +
+                'print(sum(array))\n',
+        },
+        expectedResponse: {
+            val: '15\n',
+            status: 200,
+            error: 0,
+        },
+    },
+    {
+        name: 'sqlite3 : update data in table',
+        reqObject: {
+            language: 'sqlite3',
+            script: 'CREATE TABLE users (id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, age INTEGER);\n' +
+                    'INSERT INTO users (name, age) VALUES ("Alice", 30);\n' +
+                    'INSERT INTO users (name, age) VALUES ("Bob", 25);\n' +
+                    'UPDATE users SET age = 32 WHERE name = "Alice";\n' +
+                    'SELECT * FROM users;',
+        },
+        expectedResponse: {
+            val: '1|Alice|32\n2|Bob|25\n',
+            status: 200,
+            error: 0,
+        },
+    },
 ]
 
 module.exports = { testCases }
